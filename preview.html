@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="zh-CN" data-px-motion="normal" data-px-scanlines="on" data-px-fonts="headings">
+<html lang="zh-CN" data-px-motion="normal" data-px-scanlines="on" data-px-fonts="headings" data-px-intensity="standard">
 <head>
 <meta charset="UTF-8">
-<title>dsh-huashu-pixel 预览（亮）</title>
+<title>dsh-huashu-pixel 预览（亮） · standard</title>
 <style>
 
 /* ── 1. 像素字体（随包发布，走 /huashu-pixel 路由） ───────────────────── */
@@ -50,8 +50,13 @@ body[data-ds-dark-theme]{
 }
 
 /* ── 2. token 兜底层（正常路径由 ctx.theme.overrideTokens 内联生效） ──── */
-body{--dsw-static-neutral-bluish-00:#FFFDF9;--dsw-static-neutral-bluish-50:#F5F0EB;--dsw-static-neutral-bluish-60:#F1EBE3;--dsw-static-neutral-bluish-75:#EDE6DC;--dsw-static-neutral-bluish-100:#E6DCD0;--dsw-static-neutral-bluish-150:#DCD0C2;--dsw-static-neutral-bluish-200:#D4C5B8;--dsw-static-neutral-bluish-300:#C2B2A2;--dsw-static-neutral-bluish-400:#A08B72;--dsw-static-neutral-bluish-500:#8B7355;--dsw-static-neutral-bluish-600:#7A6349;--dsw-static-neutral-bluish-700:#5F4E3A;--dsw-static-neutral-bluish-750:#4E4030;--dsw-static-neutral-bluish-800:#3D3428;--dsw-static-neutral-bluish-850:#332C22;--dsw-static-neutral-bluish-875:#2A2520;--dsw-static-neutral-bluish-900:#221E19;--dsw-static-neutral-bluish-950:#1A1713;--dsw-static-neutral-bluish-1000:#14110D;--dsw-static-neutral-00:#FFFFFF;--dsw-static-neutral-50:#F5F0EB;--dsw-static-neutral-100:#EFE9E1;--dsw-static-neutral-150:#E9E2D8;--dsw-static-neutral-200:#E2DACD;--dsw-static-neutral-250:#DBD2C3;--dsw-static-neutral-300:#D2C8B8;--dsw-static-neutral-400:#A79C8C;--dsw-static-neutral-500:#8C8172;--dsw-static-neutral-550:#75695C;--dsw-static-neutral-600:#5F5449;--dsw-static-neutral-700:#463D34;--dsw-static-neutral-800:#2E2822;--dsw-static-neutral-850:#26221C;--dsw-static-neutral-900:#14110D;--dsw-static-neutral-1000:#000000;--dsw-static-blue-50:#FDF2EA;--dsw-static-blue-50p:#FCEDE3;--dsw-static-blue-75:#FBE5D6;--dsw-static-blue-100:#F8D7C0;--dsw-static-blue-300:#F2AF88;--dsw-static-blue-400:#EE9163;--dsw-static-blue-450:#EB7B45;--dsw-static-blue-500:#E8642C;--dsw-static-blue-600:#C9501E;--dsw-static-blue-800:#8E3A16;--dsw-static-blue-900:#5E2810;--dsw-static-blue-950:#3A1A0B;--dsw-static-deepseek-50:#FDF3EC;--dsw-static-deepseek-100:#FAE4D2;--dsw-static-deepseek-200:#F6CFAC;--dsw-static-deepseek-300:#F0B584;--dsw-static-deepseek-400:#EA9A5C;--dsw-static-deepseek-450:#E6803E;--dsw-static-deepseek-500:#E8642C;--dsw-static-deepseek-600:#B94E20;--dsw-static-deepseek-700-delete:#8E3A16;--dsw-static-deepseek-800:#5E2810;--dsw-static-deepseek-900:#3A1A0B;--dsw-static-green-100:#E7F2E9;--dsw-static-green-400:#6FAE7C;--dsw-static-green-500:#3E8E5A;--dsw-static-green-500-a08:#3E8E5A14;--dsw-static-green-500-a12:#3E8E5A1F;--dsw-static-green-900:#1E3A28;--dsw-static-red-50:#FCEFEC;--dsw-static-red-100:#F8DCD6;--dsw-static-red-400:#D9705C;--dsw-static-red-400-a12:#D9705C1F;--dsw-static-red-500:#C0392B;--dsw-static-red-600:#A82F22;--dsw-static-red-600-a08:#A82F2214;--dsw-static-red-900:#451610;--dsw-static-amber-100:#FAF0DA;--dsw-static-amber-400:#E0B45C;--dsw-static-amber-500:#D4A574;--dsw-static-amber-600:#B98A55;--dsw-static-amber-900:#3A2E1B;--dsw-alias-bg-base:#F5F0EB;--dsw-alias-bg-layer-1:#FFFDF9;--dsw-alias-bg-layer-2:#FFFDF9;--dsw-alias-bg-layer-3:#FFFDF9;--dsw-alias-bg-overlay:#FFFDF9;--dsw-alias-bg-module-platform:#EFE8E0;--dsw-alias-bg-document-preview:#FFFDF9;--dsw-alias-border-l1:#D4C5B8;--dsw-alias-border-l2-darkmode-thin:#D4C5B8;--dsw-alias-border-l2:#C9B8A6;--dsw-alias-border-l3:#B9A78F;--dsw-alias-border-l4:#8B7355;--dsw-alias-border-inverted:#2A252014;--dsw-alias-border-inverted2:#2A25201F;--dsw-alias-interactive-bg-hover:#2A25200D;--dsw-alias-interactive-bg-active:#2A25201A;--dsw-alias-interactive-bg-hover-accent:#E8642C1F;--dsw-alias-interactive-bg-hover-danger:#C0392B14;--dsw-alias-bg-mask-1:#2A25203D;--dsw-alias-bg-mask-2:#2A25201F;--dsw-alias-bg-mask-3:#2A25207A;--dsw-alias-bg-mask-photo:#14110DE0;--dsw-alias-bg-mask-drop:#FFFDF9B3;--dsw-alias-bg-skeleton:#2A252012;--dsw-alias-button-tool-bar-fill:#F5F0EB80;--dsw-alias-button-tool-bar-fill-invisible:#F5F0EB40;--dsw-alias-button-tool-bar-hover:#E6DCD080;--dsw-alias-brand-primary-new-colorprimary-new-color:#E8642C;--dsw-alias-label-shimmer:#E8642C33;--dsw-alias-label-deep-diving:#C9501E;--dsw-alias-label-deep-diving-shimmer:#E8642C66;--dsw-alias-bg-document-selection:#E8642C59;--dsw-alias-file-diff-added-bg:#E7F2E9;--dsw-alias-file-diff-added-gutter:#F0F9F1;--dsw-alias-file-diff-added-marker:#3E8E5A;--dsw-alias-file-diff-deleted-bg:#FBE7E2;--dsw-alias-file-diff-deleted-gutter:#FDEEEA;--dsw-alias-file-diff-deleted-marker:#A82F22;--dsw-menu-surface-fill:#FFFDF9F2;--dsw-alias-menu-group-header-fill:#F1EBE3F2;--dsw-specific-menu:#FFFDF9F7;--dsw-specific-sidebar-fill:#F0EAE2;--dsw-alias-switch-thumb:#FFFFFF;--dsw-alias-toast-bg:#2A2520;--dsw-alias-toast-label:#F5F0EB;--dsw-alias-tooltip-bg:#2A2520;--dsw-elevation-stroke-color:#D4C5B8;--dsw-radius-xs:2px;--dsw-radius-sm:4px;--dsw-radius-md:6px;--dsw-radius-lg:8px;--dsw-radius-xl:10px;--dsw-radius-panel:12px}
-body[data-ds-dark-theme]{--dsw-static-neutral-bluish-00:#FCF7EC;--dsw-static-neutral-bluish-50:#F7EEDC;--dsw-static-neutral-bluish-60:#F2E7D1;--dsw-static-neutral-bluish-75:#EDE0C6;--dsw-static-neutral-bluish-100:#E4D5B8;--dsw-static-neutral-bluish-150:#D9C7A9;--dsw-static-neutral-bluish-200:#CDB99A;--dsw-static-neutral-bluish-300:#B9A588;--dsw-static-neutral-bluish-400:#9C8A6E;--dsw-static-neutral-bluish-500:#8B7355;--dsw-static-neutral-bluish-600:#6B5A47;--dsw-static-neutral-bluish-700:#4E4234;--dsw-static-neutral-bluish-750:#3E3529;--dsw-static-neutral-bluish-800:#332C22;--dsw-static-neutral-bluish-850:#292219;--dsw-static-neutral-bluish-875:#221D17;--dsw-static-neutral-bluish-900:#1C1813;--dsw-static-neutral-bluish-950:#14110D;--dsw-static-neutral-bluish-1000:#0E0C09;--dsw-static-neutral-00:#FFF6E4;--dsw-static-neutral-50:#231E18;--dsw-static-neutral-100:#2A241D;--dsw-static-neutral-150:#322B22;--dsw-static-neutral-200:#3A3228;--dsw-static-neutral-250:#42392E;--dsw-static-neutral-300:#4B4134;--dsw-static-neutral-400:#6B5E4B;--dsw-static-neutral-500:#857659;--dsw-static-neutral-550:#948366;--dsw-static-neutral-600:#A3906F;--dsw-static-neutral-700:#B7A382;--dsw-static-neutral-800:#CBB795;--dsw-static-neutral-850:#D8C5A6;--dsw-static-neutral-900:#EDE0C6;--dsw-static-neutral-1000:#0B0906;--dsw-static-blue-50:#2A2114;--dsw-static-blue-50p:#2A2114;--dsw-static-blue-75:#33280F;--dsw-static-blue-100:#3D2F12;--dsw-static-blue-300:#7A5A18;--dsw-static-blue-400:#B8860B;--dsw-static-blue-450:#D9A010;--dsw-static-blue-500:#FFAE2B;--dsw-static-blue-600:#FFC24D;--dsw-static-blue-800:#FFD98A;--dsw-static-blue-900:#FFE7B8;--dsw-static-blue-950:#FFF3DC;--dsw-static-deepseek-50:#2A2114;--dsw-static-deepseek-100:#3B2C14;--dsw-static-deepseek-200:#52390F;--dsw-static-deepseek-300:#7A5212;--dsw-static-deepseek-400:#C77F1E;--dsw-static-deepseek-450:#E8942A;--dsw-static-deepseek-500:#FFAE2B;--dsw-static-deepseek-600:#FFC24D;--dsw-static-deepseek-700-delete:#FFD98A;--dsw-static-deepseek-800:#FFE7B8;--dsw-static-deepseek-900:#FFF3DC;--dsw-static-green-100:#1E3A26;--dsw-static-green-400:#6FD489;--dsw-static-green-500:#4FBF6E;--dsw-static-green-500-a08:#4FBF6E14;--dsw-static-green-500-a12:#4FBF6E1F;--dsw-static-green-900:#122A1A;--dsw-static-red-50:#2E1611;--dsw-static-red-100:#3B1B14;--dsw-static-red-400:#FF7A5C;--dsw-static-red-400-a12:#FF7A5C1F;--dsw-static-red-500:#FF6B4A;--dsw-static-red-600:#FF8A6E;--dsw-static-red-600-a08:#FF6B4A14;--dsw-static-red-900:#3A150E;--dsw-static-amber-100:#3A2E15;--dsw-static-amber-400:#FFC44D;--dsw-static-amber-500:#FFAE2B;--dsw-static-amber-600:#E8942A;--dsw-static-amber-900:#2E2512;--dsw-alias-bg-base:#14110D;--dsw-alias-bg-layer-1:#1C1813;--dsw-alias-bg-layer-2:#221D17;--dsw-alias-bg-layer-3:#292219;--dsw-alias-bg-overlay:#221D17;--dsw-alias-bg-module-platform:#292219;--dsw-alias-bg-document-preview:#1C1813;--dsw-alias-border-l1:#F2E3C624;--dsw-alias-border-l2-darkmode-thin:#F2E3C624;--dsw-alias-border-l2:#F2E3C63D;--dsw-alias-border-l3:#F2E3C659;--dsw-alias-border-l4:#F2E3C67A;--dsw-alias-border-inverted:#F2E3C614;--dsw-alias-border-inverted2:#F2E3C61F;--dsw-alias-interactive-bg-hover:#F2E3C61A;--dsw-alias-interactive-bg-active:#F2E3C629;--dsw-alias-interactive-bg-hover-accent:#FFAE2B2E;--dsw-alias-interactive-bg-hover-danger:#FF6B4A26;--dsw-alias-bg-mask-1:#0E0C0980;--dsw-alias-bg-mask-2:#0E0C0933;--dsw-alias-bg-mask-3:#0E0C097A;--dsw-alias-bg-mask-photo:#0E0C09E0;--dsw-alias-bg-mask-drop:#221D17B3;--dsw-alias-bg-skeleton:#F2E3C614;--dsw-alias-button-tool-bar-fill:#332C2280;--dsw-alias-button-tool-bar-fill-invisible:#1C181340;--dsw-alias-button-tool-bar-hover:#3E352999;--dsw-alias-brand-primary-new-colorprimary-new-color:#FFAE2B;--dsw-alias-label-shimmer:#FFAE2B40;--dsw-alias-label-deep-diving:#FFC24D;--dsw-alias-label-deep-diving-shimmer:#FFAE2B80;--dsw-alias-bg-document-selection:#FFAE2B59;--dsw-alias-file-diff-added-bg:#1F3124;--dsw-alias-file-diff-added-gutter:#132016;--dsw-alias-file-diff-added-marker:#5FD07A;--dsw-alias-file-diff-deleted-bg:#3C1F1B;--dsw-alias-file-diff-deleted-gutter:#28130E;--dsw-alias-file-diff-deleted-marker:#FF7A5C;--dsw-menu-surface-fill:#221D17F2;--dsw-alias-menu-group-header-fill:#292219F2;--dsw-specific-menu:#221D17F7;--dsw-specific-sidebar-fill:#191510;--dsw-alias-switch-thumb:#F7EEDC;--dsw-alias-toast-bg:#3E3529;--dsw-alias-toast-label:#FCF7EC;--dsw-alias-tooltip-bg:#3E3529;--dsw-elevation-stroke-color:#F2E3C63D;--dsw-radius-xs:2px;--dsw-radius-sm:4px;--dsw-radius-md:6px;--dsw-radius-lg:8px;--dsw-radius-xl:10px;--dsw-radius-panel:12px}
+body{--dsw-static-neutral-bluish-00:#FFFDF9;--dsw-static-neutral-bluish-50:#F5F0EB;--dsw-static-neutral-bluish-60:#F1EBE3;--dsw-static-neutral-bluish-75:#EDE6DC;--dsw-static-neutral-bluish-100:#E6DCD0;--dsw-static-neutral-bluish-150:#DCD0C2;--dsw-static-neutral-bluish-200:#D4C5B8;--dsw-static-neutral-bluish-300:#C2B2A2;--dsw-static-neutral-bluish-400:#A08B72;--dsw-static-neutral-bluish-500:#8B7355;--dsw-static-neutral-bluish-600:#7A6349;--dsw-static-neutral-bluish-700:#5F4E3A;--dsw-static-neutral-bluish-750:#4E4030;--dsw-static-neutral-bluish-800:#3D3428;--dsw-static-neutral-bluish-850:#332C22;--dsw-static-neutral-bluish-875:#2A2520;--dsw-static-neutral-bluish-900:#221E19;--dsw-static-neutral-bluish-950:#1A1713;--dsw-static-neutral-bluish-1000:#14110D;--dsw-static-neutral-00:#FFFFFF;--dsw-static-neutral-50:#F5F0EB;--dsw-static-neutral-100:#EFE9E1;--dsw-static-neutral-150:#E9E2D8;--dsw-static-neutral-200:#E2DACD;--dsw-static-neutral-250:#DBD2C3;--dsw-static-neutral-300:#D2C8B8;--dsw-static-neutral-400:#A79C8C;--dsw-static-neutral-500:#8C8172;--dsw-static-neutral-550:#75695C;--dsw-static-neutral-600:#5F5449;--dsw-static-neutral-700:#463D34;--dsw-static-neutral-800:#2E2822;--dsw-static-neutral-850:#26221C;--dsw-static-neutral-900:#14110D;--dsw-static-neutral-1000:#000000;--dsw-static-blue-50:#FDF2EA;--dsw-static-blue-50p:#FCEDE3;--dsw-static-blue-75:#FBE5D6;--dsw-static-blue-100:#F8D7C0;--dsw-static-blue-300:#F2AF88;--dsw-static-blue-400:#EE9163;--dsw-static-blue-450:#EB7B45;--dsw-static-blue-500:#E8642C;--dsw-static-blue-600:#C9501E;--dsw-static-blue-800:#8E3A16;--dsw-static-blue-900:#5E2810;--dsw-static-blue-950:#3A1A0B;--dsw-static-deepseek-50:#FDF3EC;--dsw-static-deepseek-100:#FAE4D2;--dsw-static-deepseek-200:#F6CFAC;--dsw-static-deepseek-300:#F0B584;--dsw-static-deepseek-400:#EA9A5C;--dsw-static-deepseek-450:#E6803E;--dsw-static-deepseek-500:#E8642C;--dsw-static-deepseek-600:#B94E20;--dsw-static-deepseek-700-delete:#8E3A16;--dsw-static-deepseek-800:#5E2810;--dsw-static-deepseek-900:#3A1A0B;--dsw-static-green-100:#E7F2E9;--dsw-static-green-400:#6FAE7C;--dsw-static-green-500:#3E8E5A;--dsw-static-green-500-a08:#3E8E5A14;--dsw-static-green-500-a12:#3E8E5A1F;--dsw-static-green-900:#1E3A28;--dsw-static-red-50:#FCEFEC;--dsw-static-red-100:#F8DCD6;--dsw-static-red-400:#D9705C;--dsw-static-red-400-a12:#D9705C1F;--dsw-static-red-500:#C0392B;--dsw-static-red-600:#A82F22;--dsw-static-red-600-a08:#A82F2214;--dsw-static-red-900:#451610;--dsw-static-amber-100:#FAF0DA;--dsw-static-amber-400:#E0B45C;--dsw-static-amber-500:#D4A574;--dsw-static-amber-600:#B98A55;--dsw-static-amber-900:#3A2E1B;--dsw-alias-bg-base:#F5F0EB;--dsw-alias-bg-layer-1:#FFFDF9;--dsw-alias-bg-layer-2:#FFFDF9;--dsw-alias-bg-layer-3:#FFFDF9;--dsw-alias-bg-overlay:#FFFDF9;--dsw-alias-bg-module-platform:#EFE8E0;--dsw-alias-bg-document-preview:#FFFDF9;--dsw-alias-border-l1:#D4C5B8;--dsw-alias-border-l2-darkmode-thin:#D4C5B8;--dsw-alias-border-l2:#C9B8A6;--dsw-alias-border-l3:#B9A78F;--dsw-alias-border-l4:#8B7355;--dsw-alias-border-inverted:#2A252014;--dsw-alias-border-inverted2:#2A25201F;--dsw-alias-interactive-bg-hover:#2A25200D;--dsw-alias-interactive-bg-active:#2A25201A;--dsw-alias-interactive-bg-hover-accent:#E8642C1F;--dsw-alias-interactive-bg-hover-danger:#C0392B14;--dsw-alias-bg-mask-1:#2A25203D;--dsw-alias-bg-mask-2:#2A25201F;--dsw-alias-bg-mask-3:#2A25207A;--dsw-alias-bg-mask-photo:#14110DE0;--dsw-alias-bg-mask-drop:#FFFDF9B3;--dsw-alias-bg-skeleton:#2A252012;--dsw-alias-button-tool-bar-fill:#F5F0EB80;--dsw-alias-button-tool-bar-fill-invisible:#F5F0EB40;--dsw-alias-button-tool-bar-hover:#E6DCD080;--dsw-alias-brand-primary-new-colorprimary-new-color:#E8642C;--dsw-alias-label-shimmer:#E8642C33;--dsw-alias-label-deep-diving:#C9501E;--dsw-alias-label-deep-diving-shimmer:#E8642C66;--dsw-alias-bg-document-selection:#E8642C59;--dsw-alias-file-diff-added-bg:#E7F2E9;--dsw-alias-file-diff-added-gutter:#F0F9F1;--dsw-alias-file-diff-added-marker:#3E8E5A;--dsw-alias-file-diff-deleted-bg:#FBE7E2;--dsw-alias-file-diff-deleted-gutter:#FDEEEA;--dsw-alias-file-diff-deleted-marker:#A82F22;--dsw-menu-surface-fill:#FFFDF9F2;--dsw-alias-menu-group-header-fill:#F1EBE3F2;--dsw-specific-menu:#FFFDF9F7;--dsw-specific-sidebar-fill:#F0EAE2;--dsw-alias-switch-thumb:#FFFFFF;--dsw-alias-toast-bg:#2A2520;--dsw-alias-toast-label:#F5F0EB;--dsw-alias-tooltip-bg:#2A2520;--dsw-elevation-stroke-color:#D4C5B8}
+body[data-ds-dark-theme]{--dsw-static-neutral-bluish-00:#FCF7EC;--dsw-static-neutral-bluish-50:#F7EEDC;--dsw-static-neutral-bluish-60:#F2E7D1;--dsw-static-neutral-bluish-75:#EDE0C6;--dsw-static-neutral-bluish-100:#E4D5B8;--dsw-static-neutral-bluish-150:#D9C7A9;--dsw-static-neutral-bluish-200:#CDB99A;--dsw-static-neutral-bluish-300:#B9A588;--dsw-static-neutral-bluish-400:#9C8A6E;--dsw-static-neutral-bluish-500:#8B7355;--dsw-static-neutral-bluish-600:#6B5A47;--dsw-static-neutral-bluish-700:#4E4234;--dsw-static-neutral-bluish-750:#3E3529;--dsw-static-neutral-bluish-800:#332C22;--dsw-static-neutral-bluish-850:#292219;--dsw-static-neutral-bluish-875:#221D17;--dsw-static-neutral-bluish-900:#1C1813;--dsw-static-neutral-bluish-950:#14110D;--dsw-static-neutral-bluish-1000:#0E0C09;--dsw-static-neutral-00:#FFF6E4;--dsw-static-neutral-50:#231E18;--dsw-static-neutral-100:#2A241D;--dsw-static-neutral-150:#322B22;--dsw-static-neutral-200:#3A3228;--dsw-static-neutral-250:#42392E;--dsw-static-neutral-300:#4B4134;--dsw-static-neutral-400:#6B5E4B;--dsw-static-neutral-500:#857659;--dsw-static-neutral-550:#948366;--dsw-static-neutral-600:#A3906F;--dsw-static-neutral-700:#B7A382;--dsw-static-neutral-800:#CBB795;--dsw-static-neutral-850:#D8C5A6;--dsw-static-neutral-900:#EDE0C6;--dsw-static-neutral-1000:#0B0906;--dsw-static-blue-50:#2A2114;--dsw-static-blue-50p:#2A2114;--dsw-static-blue-75:#33280F;--dsw-static-blue-100:#3D2F12;--dsw-static-blue-300:#7A5A18;--dsw-static-blue-400:#B8860B;--dsw-static-blue-450:#D9A010;--dsw-static-blue-500:#FFAE2B;--dsw-static-blue-600:#FFC24D;--dsw-static-blue-800:#FFD98A;--dsw-static-blue-900:#FFE7B8;--dsw-static-blue-950:#FFF3DC;--dsw-static-deepseek-50:#2A2114;--dsw-static-deepseek-100:#3B2C14;--dsw-static-deepseek-200:#52390F;--dsw-static-deepseek-300:#7A5212;--dsw-static-deepseek-400:#C77F1E;--dsw-static-deepseek-450:#E8942A;--dsw-static-deepseek-500:#FFAE2B;--dsw-static-deepseek-600:#FFC24D;--dsw-static-deepseek-700-delete:#FFD98A;--dsw-static-deepseek-800:#FFE7B8;--dsw-static-deepseek-900:#FFF3DC;--dsw-static-green-100:#1E3A26;--dsw-static-green-400:#6FD489;--dsw-static-green-500:#4FBF6E;--dsw-static-green-500-a08:#4FBF6E14;--dsw-static-green-500-a12:#4FBF6E1F;--dsw-static-green-900:#122A1A;--dsw-static-red-50:#2E1611;--dsw-static-red-100:#3B1B14;--dsw-static-red-400:#FF7A5C;--dsw-static-red-400-a12:#FF7A5C1F;--dsw-static-red-500:#FF6B4A;--dsw-static-red-600:#FF8A6E;--dsw-static-red-600-a08:#FF6B4A14;--dsw-static-red-900:#3A150E;--dsw-static-amber-100:#3A2E15;--dsw-static-amber-400:#FFC44D;--dsw-static-amber-500:#FFAE2B;--dsw-static-amber-600:#E8942A;--dsw-static-amber-900:#2E2512;--dsw-alias-bg-base:#14110D;--dsw-alias-bg-layer-1:#1C1813;--dsw-alias-bg-layer-2:#221D17;--dsw-alias-bg-layer-3:#292219;--dsw-alias-bg-overlay:#221D17;--dsw-alias-bg-module-platform:#292219;--dsw-alias-bg-document-preview:#1C1813;--dsw-alias-border-l1:#F2E3C624;--dsw-alias-border-l2-darkmode-thin:#F2E3C624;--dsw-alias-border-l2:#F2E3C63D;--dsw-alias-border-l3:#F2E3C659;--dsw-alias-border-l4:#F2E3C67A;--dsw-alias-border-inverted:#F2E3C614;--dsw-alias-border-inverted2:#F2E3C61F;--dsw-alias-interactive-bg-hover:#F2E3C61A;--dsw-alias-interactive-bg-active:#F2E3C629;--dsw-alias-interactive-bg-hover-accent:#FFAE2B2E;--dsw-alias-interactive-bg-hover-danger:#FF6B4A26;--dsw-alias-bg-mask-1:#0E0C0980;--dsw-alias-bg-mask-2:#0E0C0933;--dsw-alias-bg-mask-3:#0E0C097A;--dsw-alias-bg-mask-photo:#0E0C09E0;--dsw-alias-bg-mask-drop:#221D17B3;--dsw-alias-bg-skeleton:#F2E3C614;--dsw-alias-button-tool-bar-fill:#332C2280;--dsw-alias-button-tool-bar-fill-invisible:#1C181340;--dsw-alias-button-tool-bar-hover:#3E352999;--dsw-alias-brand-primary-new-colorprimary-new-color:#FFAE2B;--dsw-alias-label-shimmer:#FFAE2B40;--dsw-alias-label-deep-diving:#FFC24D;--dsw-alias-label-deep-diving-shimmer:#FFAE2B80;--dsw-alias-bg-document-selection:#FFAE2B59;--dsw-alias-file-diff-added-bg:#1F3124;--dsw-alias-file-diff-added-gutter:#132016;--dsw-alias-file-diff-added-marker:#5FD07A;--dsw-alias-file-diff-deleted-bg:#3C1F1B;--dsw-alias-file-diff-deleted-gutter:#28130E;--dsw-alias-file-diff-deleted-marker:#FF7A5C;--dsw-menu-surface-fill:#221D17F2;--dsw-alias-menu-group-header-fill:#292219F2;--dsw-specific-menu:#221D17F7;--dsw-specific-sidebar-fill:#191510;--dsw-alias-switch-thumb:#F7EEDC;--dsw-alias-toast-bg:#3E3529;--dsw-alias-toast-label:#FCF7EC;--dsw-alias-tooltip-bg:#3E3529;--dsw-elevation-stroke-color:#F2E3C63D}
+
+/* ── 2.1 圆角按"体感强度"三档（样式表声明，切档即时生效） ─────────────── */
+html[data-px-intensity="light"] body{--dsw-radius-xs:2px;--dsw-radius-sm:4px;--dsw-radius-md:6px;--dsw-radius-lg:8px;--dsw-radius-xl:10px;--dsw-radius-panel:12px}
+html[data-px-intensity="standard"] body{--dsw-radius-xs:2px;--dsw-radius-sm:2px;--dsw-radius-md:4px;--dsw-radius-lg:6px;--dsw-radius-xl:8px;--dsw-radius-panel:10px}
+html[data-px-intensity="strong"] body{--dsw-radius-xs:0px;--dsw-radius-sm:0px;--dsw-radius-md:0px;--dsw-radius-lg:2px;--dsw-radius-xl:4px;--dsw-radius-panel:6px}
 
 /* ── 3. 层级描边：硬描边 + 硬投影（像素块感） ────────────────────────
    这一族 token 被官方逐元素重声明，所以必须自己声明到每个元素上并加 !important。 */
@@ -79,7 +84,7 @@ body{
 }
 
 /* ── 5. 像素字体范围（由 <html data-px-fonts> 分档） ─────────────────── */
-html:is([data-px-fonts="headings"],[data-px-fonts="all"]) :is(button,[role="button"],[role="menuitem"],[role="menuitemradio"],[role="menuitemcheckbox"],[role="tab"],[role="option"],[data-menu-group-heading],[data-menu-group-heading-start],[data-composer-chip],[data-ref-chip],[data-caption],[data-path-label],[data-conversation-tabs],[data-goal-bar],[data-status],[data-plan-card],[data-queue-dock],[data-windows-titlebar]){
+html:is([data-px-fonts="headings"],[data-px-fonts="all"],[data-px-fonts="all12"]) :is(button,[role="button"],[role="menuitem"],[role="menuitemradio"],[role="menuitemcheckbox"],[role="tab"],[role="option"],[data-menu-group-heading],[data-menu-group-heading-start],[data-composer-chip],[data-ref-chip],[data-caption],[data-path-label],[data-conversation-tabs],[data-goal-bar],[data-status],[data-plan-card],[data-queue-dock],[data-windows-titlebar],[class*="_sessionRow"] [class*="_title"],[class*="_sessionRow"] [class*="_meta"],[class*="_projectRow"] [class*="_title"],[class*="_projectRow"] [class*="_meta"],[class*="_rowActions"] button,[class*="_sectionLabel"]){
   font-family:var(--px-font-ui);
   font-size:12px !important;
   line-height:1.5 !important;
@@ -89,41 +94,123 @@ html:is([data-px-fonts="headings"],[data-px-fonts="all"]) :is(button,[role="butt
   -webkit-font-smoothing:none;
 }
 /* 全界面档：正文也像素化（字号取 12 / 24px 的整数倍最清晰；这是你自己选的档） */
-html[data-px-fonts="all"] body{--dsw-font-family:var(--px-font-ui)}
-html[data-px-fonts="all"] body :is(p,li,td,th,blockquote,dd,dt,h1,h2,h3){font-family:var(--px-font-ui);-webkit-font-smoothing:none}
+html:is([data-px-fonts="all"],[data-px-fonts="all12"]) body{--dsw-font-family:var(--px-font-ui)}
+html:is([data-px-fonts="all"],[data-px-fonts="all12"]) body :is(p,li,td,th,blockquote,dd,dt,h1,h2,h3){font-family:var(--px-font-ui);-webkit-font-smoothing:none}
+/* 全界面 · 12px 档：把正文钉在像素字体的原生网格上（覆盖 ui-layout 写在内联样式里的正文字号） */
+html[data-px-fonts="all12"] body{--dsh-content-font-size:12px !important}
 /* 品牌位（欢迎页 / 品牌文字）用 Press Start 2P，短拉丁串上最像街机 */
 body{--dsw-font-family-brand:var(--px-font-display)}
 
-/* ── 6. 方角与描边（面板 / 输入 / 卡片 / 菜单 / 对话框） ─────────────── */
-:is([data-composer-card],[data-menu-material],[data-plan-card],[role="dialog"],[role="alertdialog"],[data-menu-backing]){
-  border-radius:var(--dsw-radius-xl) !important;
-}
-:is([data-menu-material],[data-composer-card],[data-plan-card],[role="dialog"],[role="alertdialog"]){
-  box-shadow:0 0 0 1.5px var(--dsw-elevation-stroke-color),4px 4px 0 0 var(--px-shadow) !important;
-  border:0 !important;
-}
-[data-composer-card]{position:relative}
-[data-composer-card]:focus-within{
-  box-shadow:0 0 0 1.5px var(--px-accent),4px 4px 0 0 var(--px-shadow) !important;
-}
-button,[role="button"]{border-radius:var(--dsw-radius-sm) !important}
+/* ── 6. 像素控件层（按"体感强度"分三档，默认标准） ────────────────────
+   轻：只做花书文稿那层（暖色/圆角/表格/引用块），几乎不加装饰
+   标准：方角化 + 关键面硬描边 + 侧栏像素灯（默认）
+   浓：控件全描边、卡片气泡也描边、菜单反白、扫描线更强 */
 
-/* 表头：墨底纸字（花书文稿的表格签名） */
+/* 6.1 两档共用的签名：墨底表头 + 橙线引用块 + 方角滚动条 */
 thead th{
   background:var(--px-table-head-bg) !important;
   color:var(--px-table-head-fg) !important;
   font-weight:700 !important;
+  border:1px solid var(--px-line) !important;
 }
-/* 引用块：橙线 + 棕字（文稿的 .sub 语言） */
+table :is(td,th){border-color:var(--px-line) !important}
 blockquote{
   border-left:3px solid var(--px-accent) !important;
   color:var(--px-muted) !important;
   padding-left:14px !important;
   background:transparent !important;
 }
-/* 滚动条：粗一档、方角 */
 ::-webkit-scrollbar{border-radius:0 !important}
 ::-webkit-scrollbar-thumb{border-radius:0 !important}
+
+/* 6.2 标准 / 浓：关键面（输入区 / 菜单 / 对话框）硬描边 + 硬投影 */
+html:is([data-px-intensity="standard"],[data-px-intensity="strong"]) :is([data-menu-material],[data-composer-card],[role="dialog"],[role="alertdialog"]){
+  box-shadow:0 0 0 1.5px var(--dsw-elevation-stroke-color),3px 3px 0 0 var(--px-shadow-soft) !important;
+  border:0 !important;
+}
+html[data-px-intensity="strong"] :is([data-menu-material],[data-composer-card],[role="dialog"],[role="alertdialog"]){
+  box-shadow:0 0 0 2px var(--px-line),5px 5px 0 0 var(--px-shadow) !important;
+}
+html:is([data-px-intensity="standard"],[data-px-intensity="strong"]) [data-composer-card]{position:relative}
+html:is([data-px-intensity="standard"],[data-px-intensity="strong"]) [data-composer-card]:focus-within{
+  box-shadow:0 0 0 1.5px var(--px-accent),3px 3px 0 0 var(--px-shadow-soft) !important;
+}
+html[data-px-intensity="strong"] [data-composer-card]:focus-within{
+  box-shadow:0 0 0 2px var(--px-accent),5px 5px 0 0 var(--px-shadow) !important;
+}
+
+/* 6.3 标准 / 浓：按钮按下往右下"陷"2px（街机按键手感，不加常驻描边） */
+html:is([data-px-intensity="standard"],[data-px-intensity="strong"]) :is(button,[role="button"]){
+  transition:none !important;
+}
+html:is([data-px-intensity="standard"],[data-px-intensity="strong"]) :is(button,[role="button"]):active{
+  transform:translate(1.5px,1.5px) !important;
+}
+
+/* 6.4 标准 / 浓：侧栏会话行方块化，选中＝墨块 + 左侧橙灯，行首一个 14px 像素灯位 */
+html:is([data-px-intensity="standard"],[data-px-intensity="strong"]) :is([class*="_sessionRow"],[class*="_projectRow"]){
+  border-radius:0 !important;
+}
+html:is([data-px-intensity="standard"],[data-px-intensity="strong"]) :is([class*="_sessionRow"],[class*="_projectRow"])[class*="_selected"]{
+  background:var(--px-ink) !important;
+  color:var(--px-table-head-fg) !important;
+  box-shadow:inset 3px 0 0 0 var(--px-accent) !important;
+}
+html:is([data-px-intensity="standard"],[data-px-intensity="strong"]) :is([class*="_sessionRow"],[class*="_projectRow"])[class*="_selected"] *{
+  color:var(--px-table-head-fg) !important;
+}
+html:is([data-px-intensity="standard"],[data-px-intensity="strong"]) [class*="_slot"]{
+  position:relative;
+  width:13px !important;height:13px !important;
+  border:1px solid var(--dsw-alias-border-l3);
+  background:var(--px-paper);
+}
+html:is([data-px-intensity="standard"],[data-px-intensity="strong"]) [class*="_slot"]::after{
+  content:'';position:absolute;left:2px;top:2px;width:5px;height:5px;background:var(--px-accent);
+}
+html:is([data-px-motion="normal"],[data-px-motion="arcade"]) :is([data-px-intensity="standard"],[data-px-intensity="strong"]) [class*="_slot"]::after{
+  animation:px-blink 1.2s steps(1,end) infinite;
+}
+/* 轻档：侧栏只留一道橙轨，不反白 */
+html[data-px-intensity="light"] :is([class*="_sessionRow"],[class*="_projectRow"])[class*="_selected"]{
+  box-shadow:inset 3px 0 0 0 var(--px-accent) !important;
+}
+
+/* 6.5 状态灯：只作用在小元素上（行容器也带 data-state，绝不能整块刷色） */
+[data-state]{border-radius:0 !important}
+:is(span,svg,i,b,em)[data-state="ongoing"],:is(span,svg,i,b,em)[data-state="running"]{
+  background:var(--px-accent) !important;
+  box-shadow:0 0 0 1px var(--dsw-alias-border-l4) !important;
+}
+:is(span,svg,i,b,em)[data-state="error"]{background:var(--dsw-alias-state-error-primary) !important}
+:is(span,svg,i,b,em)[data-state="done"]{background:var(--dsw-alias-state-success-primary) !important}
+
+/* 6.6 浓档：控件常驻 1.5px 描边 + 2px 硬投影；卡片/气泡也上描边；菜单反白 */
+html[data-px-intensity="strong"] :is(button,[role="button"]){
+  border-radius:0 !important;
+  box-shadow:0 0 0 1.5px var(--dsw-alias-border-l4),2px 2px 0 0 var(--px-shadow-soft) !important;
+}
+html[data-px-intensity="strong"] :is(button,[role="button"]):active{
+  transform:translate(2px,2px) !important;
+  box-shadow:0 0 0 1.5px var(--dsw-alias-border-l4) !important;
+}
+html[data-px-intensity="strong"] :is([class*="_ioCard"],[class*="_fileCard"],[class*="_bubble"],[class*="_planCard"]){
+  border-radius:0 !important;
+  box-shadow:0 0 0 1.5px var(--dsw-alias-border-l2),3px 3px 0 0 var(--px-shadow-soft) !important;
+}
+html[data-px-intensity="strong"] :is([role="menuitem"],[role="menuitemradio"],[role="menuitemcheckbox"]):hover{
+  background:var(--px-ink) !important;
+  color:var(--px-table-head-fg) !important;
+}
+/* 用户气泡：三档都用暖橙底，标准/浓再补一圈橙线 */
+:is([class*="_userStack"],[class*="_userRow"]) [class*="_bubble"]{
+  background:color-mix(in srgb, var(--px-accent) 9%, var(--dsw-alias-bg-layer-1)) !important;
+}
+html:is([data-px-intensity="standard"],[data-px-intensity="strong"]) :is([class*="_userStack"],[class*="_userRow"]) [class*="_bubble"]{
+  border-radius:0 !important;
+  box-shadow:0 0 0 1.5px var(--px-accent) !important;
+}
+html[data-px-intensity="strong"] [class*="_turnErrorRow"]{box-shadow:0 0 0 2px var(--dsw-alias-state-error-primary) !important}
 
 /* ── 7. 流式输出：方块光标 + 硬步进扫光 + 磷光 ──────────────────────── */
 @keyframes px-blink{0%,49%{opacity:1}50%,100%{opacity:0}}
@@ -136,12 +223,24 @@ blockquote{
 @keyframes px-boot{0%{clip-path:inset(0 0 100% 0)}55%{clip-path:inset(45% 0 45% 0)}100%{clip-path:inset(0 0 0 0);opacity:0}}
 
 html:is([data-px-motion="normal"],[data-px-motion="arcade"]) [data-shimmer]{
+  text-shadow:0 0 10px var(--px-glow);
   text-shadow:0 0 7px var(--px-glow);
 }
+/* 浓档才有那条"打印头"下划线；标准/轻档只留光标，避免一直在动的东西太多 */
+html[data-px-intensity="strong"] :is([data-px-motion="normal"],[data-px-motion="arcade"]) [data-shimmer]{
+  background-image:repeating-linear-gradient(90deg,var(--px-accent) 0 5px,transparent 5px 13px);
+  background-size:13px 2px;
+  background-position:0 100%;
+  background-repeat:repeat-x;
+  animation:px-march .6s steps(6,end) infinite;
+}
 html:is([data-px-motion="normal"],[data-px-motion="arcade"]) [data-shimmer]::after{
-  content:'';display:inline-block;width:7px;height:12px;margin-left:3px;vertical-align:-1px;
+  content:'';display:inline-block;width:8px;height:13px;margin-left:3px;vertical-align:-2px;
   background:var(--px-accent);box-shadow:0 0 6px var(--px-glow);
   animation:px-blink 1s steps(1,end) infinite;
+}
+html:is([data-px-intensity="standard"],[data-px-intensity="strong"]) :is([data-px-motion="normal"],[data-px-motion="arcade"]) [data-shimmer]{
+  text-shadow:0 0 9px var(--px-glow);
 }
 /* 把官方那条平滑扫光改成硬步进（只改缓动，不动它的动画本身） */
 html:is([data-px-motion="normal"],[data-px-motion="arcade"]) [data-shimmer] *{
@@ -193,17 +292,54 @@ html[data-px-motion="arcade"] [data-dsh-huashu-pixel-overlay]{animation:px-boot 
 /* ── 9. CRT 扫描线覆层 ──────────────────────────────────────────────── */
 [data-dsh-huashu-pixel-overlay]{
   position:fixed;inset:0;z-index:2147482000;pointer-events:none;
-  --px-scanline-opacity:.055;
+  --px-scanline-opacity:.032;
   opacity:var(--px-scanline-opacity);
-  background-image:repeating-linear-gradient(0deg,rgba(20,17,13,.55) 0 1px,transparent 1px 3px);
+  background-image:
+    repeating-linear-gradient(0deg,rgba(20,17,13,.55) 0 1px,transparent 1px 4px),
+    radial-gradient(130% 110% at 50% 50%,transparent 62%,rgba(20,17,13,.34) 100%);
   mix-blend-mode:multiply;
 }
+html[data-px-intensity="standard"] [data-dsh-huashu-pixel-overlay]{--px-scanline-opacity:.042}
+html[data-px-intensity="strong"] [data-dsh-huashu-pixel-overlay]{--px-scanline-opacity:.06}
 body[data-ds-dark-theme] [data-dsh-huashu-pixel-overlay]{
-  --px-scanline-opacity:.085;
-  background-image:repeating-linear-gradient(0deg,rgba(255,214,140,.5) 0 1px,transparent 1px 3px);
+  background-image:
+    repeating-linear-gradient(0deg,rgba(255,214,140,.5) 0 1px,transparent 1px 4px),
+    radial-gradient(130% 110% at 50% 50%,transparent 62%,rgba(0,0,0,.42) 100%);
   mix-blend-mode:screen;
 }
+html[data-px-intensity="standard"] body[data-ds-dark-theme] [data-dsh-huashu-pixel-overlay]{--px-scanline-opacity:.055}
+html[data-px-intensity="strong"] body[data-ds-dark-theme] [data-dsh-huashu-pixel-overlay]{--px-scanline-opacity:.075}
+html[data-px-intensity="light"] [data-dsh-huashu-pixel-overlay]{
+  --px-scanline-opacity:.022;
+  background-image:repeating-linear-gradient(0deg,rgba(20,17,13,.5) 0 1px,transparent 1px 4px);
+}
+html[data-px-intensity="light"] body[data-ds-dark-theme] [data-dsh-huashu-pixel-overlay]{
+  --px-scanline-opacity:.04;
+  background-image:repeating-linear-gradient(0deg,rgba(255,214,140,.5) 0 1px,transparent 1px 4px);
+}
 html[data-px-scanlines="off"] [data-dsh-huashu-pixel-overlay]{display:none}
+
+/* ── 11. 开屏自检（一次性 CRT 上电，由 JS 挂载并在结束后自删） ───────── */
+[data-px-boot]{
+  position:fixed;inset:0;z-index:2147483000;pointer-events:auto;
+  background:var(--px-paper);
+  color:var(--px-accent);
+  font-family:var(--px-font-ui);
+  font-size:12px;line-height:1.8;letter-spacing:.04em;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;gap:2px;
+  animation:px-power .42s steps(7,end) 1 both;
+  cursor:pointer;
+}
+[data-px-boot] .px-boot-line{opacity:0;animation:px-type .18s steps(1,end) 1 both}
+[data-px-boot] .px-boot-cursor{display:inline-block;width:9px;height:12px;background:var(--px-accent);animation:px-blink .5s steps(1,end) infinite}
+@keyframes px-power{
+  0%{clip-path:inset(49% 0 49% 0)}
+  35%{clip-path:inset(20% 0 20% 0)}
+  70%{clip-path:inset(4% 0 4% 0)}
+  100%{clip-path:inset(0 0 0 0)}
+}
+@keyframes px-type{from{opacity:0}to{opacity:1}}
+body[data-ds-dark-theme] [data-px-boot]{background:var(--px-paper)}
 
 /* ── 10. 无动效档 + 系统无障碍开关 ──────────────────────────────────── */
 html[data-px-motion="off"] [data-shimmer]::after,
@@ -249,8 +385,8 @@ body{}
 .app{display:flex;min-height:100vh}
 .sidebar{width:240px;flex-shrink:0;background:var(--dsw-specific-sidebar-fill);border-right:1px solid var(--dsw-alias-border-l1);padding:16px 12px;display:flex;flex-direction:column;gap:8px}
 .brand{font-family:var(--px-font-display);font-size:12px;letter-spacing:.08em;color:var(--px-accent);margin-bottom:8px}
-.session{padding:8px 10px;border-radius:var(--dsw-radius-sm);font-size:13px;color:var(--dsw-alias-label-secondary)}
-.session.sel{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary);box-shadow:inset 3px 0 0 var(--px-accent)}
+.jJkEga_sessionRow{padding:0 8px;border-radius:var(--dsw-radius-md);font-size:13px;color:var(--dsw-alias-label-primary);display:flex;align-items:center;gap:6px;height:32px}
+.jJkEga_title{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .sideFoot{margin-top:auto;font-family:var(--px-font-ui);font-size:12px;color:var(--dsw-alias-label-caption)}
 .main{flex:1;padding:20px 28px;display:flex;flex-direction:column;gap:16px;min-width:0}
 .header h1{font-size:20px;margin:2px 0 8px;color:var(--dsw-alias-label-primary)}
@@ -280,9 +416,9 @@ button.ghost{background:transparent;color:var(--dsw-alias-label-secondary)}
 <div class="app">
   <aside class="sidebar" data-sidebar>
     <div class="brand">HUASHU PIXEL</div>
-    <div class="session" data-conversation-session>暖调像素主题</div>
-    <div class="session sel" data-conversation-session>老式街机动效</div>
-    <div class="session" data-conversation-session>插件市场范式</div>
+    <div class="jJkEga_sessionRow" data-conversation-session><span class="jJkEga_slot"></span><span class="jJkEga_title">暖调像素主题</span></div>
+    <div class="jJkEga_sessionRow jJkEga_selected" data-conversation-session><span class="jJkEga_slot"></span><span class="jJkEga_title">老式街机动效</span></div>
+    <div class="jJkEga_sessionRow" data-conversation-session><span class="jJkEga_slot"></span><span class="jJkEga_title">插件市场范式</span></div>
     <div class="sideFoot">v1.0.0 · 2026-10-03</div>
   </aside>
   <main class="main" data-conversation-scroll>
@@ -295,7 +431,7 @@ button.ghost{background:transparent;color:var(--dsw-alias-label-secondary)}
       <div class="bubble user" data-side="right"><p>把界面换成花书那套像素风，并给流式输出加上老机器的动效。</p></div>
       <div class="assistant">
         <p data-shimmer>正在按花书像素文稿的配色重建 token 层<span data-shimmer-text></span></p>
-        <div class="tool" data-tool data-state="ongoing" data-running>
+        <div class="tool" data-tool data-running>
           <span class="dot" data-state="ongoing"></span>bash · 校验字体路由
         </div>
         <blockquote>亮色是设计文稿，暗色切到老式街机的磷光。</blockquote>

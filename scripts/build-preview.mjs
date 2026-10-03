@@ -23,7 +23,9 @@ class FakeElement {
     this.attributes = new Map()
     this.children = []
     this.textContent = ''
+    this.style = {}
   }
+  addEventListener() {}
   setAttribute(name, value) {
     this.attributes.set(name, String(value))
     if (name === 'data-plugin') this.dataset.plugin = String(value)
@@ -113,9 +115,9 @@ const mock = String.raw`
 <div class="app">
   <aside class="sidebar" data-sidebar>
     <div class="brand">HUASHU PIXEL</div>
-    <div class="session" data-conversation-session>暖调像素主题</div>
-    <div class="session sel" data-conversation-session>老式街机动效</div>
-    <div class="session" data-conversation-session>插件市场范式</div>
+    <div class="jJkEga_sessionRow" data-conversation-session><span class="jJkEga_slot"></span><span class="jJkEga_title">暖调像素主题</span></div>
+    <div class="jJkEga_sessionRow jJkEga_selected" data-conversation-session><span class="jJkEga_slot"></span><span class="jJkEga_title">老式街机动效</span></div>
+    <div class="jJkEga_sessionRow" data-conversation-session><span class="jJkEga_slot"></span><span class="jJkEga_title">插件市场范式</span></div>
     <div class="sideFoot">v1.0.0 · 2026-10-03</div>
   </aside>
   <main class="main" data-conversation-scroll>
@@ -128,7 +130,7 @@ const mock = String.raw`
       <div class="bubble user" data-side="right"><p>把界面换成花书那套像素风，并给流式输出加上老机器的动效。</p></div>
       <div class="assistant">
         <p data-shimmer>正在按花书像素文稿的配色重建 token 层<span data-shimmer-text></span></p>
-        <div class="tool" data-tool data-state="ongoing" data-running>
+        <div class="tool" data-tool data-running>
           <span class="dot" data-state="ongoing"></span>bash · 校验字体路由
         </div>
         <blockquote>亮色是设计文稿，暗色切到老式街机的磷光。</blockquote>
@@ -154,11 +156,11 @@ const mock = String.raw`
 </div>
 `
 
-const shell = (dark) => `<!DOCTYPE html>
-<html lang="zh-CN" data-px-motion="normal" data-px-scanlines="on" data-px-fonts="headings">
+const shell = (dark, tier = 'standard') => `<!DOCTYPE html>
+<html lang="zh-CN" data-px-motion="normal" data-px-scanlines="on" data-px-fonts="headings" data-px-intensity="${tier}">
 <head>
 <meta charset="UTF-8">
-<title>dsh-huashu-pixel 预览${dark ? '（暗）' : '（亮）'}</title>
+<title>dsh-huashu-pixel 预览${dark ? '（暗）' : '（亮）'} · ${tier}</title>
 <style>
 ${css}
 ${PREVIEW_ALIAS_SHIM}
@@ -168,8 +170,8 @@ body{${dark ? '' : ''}}
 .app{display:flex;min-height:100vh}
 .sidebar{width:240px;flex-shrink:0;background:var(--dsw-specific-sidebar-fill);border-right:1px solid var(--dsw-alias-border-l1);padding:16px 12px;display:flex;flex-direction:column;gap:8px}
 .brand{font-family:var(--px-font-display);font-size:12px;letter-spacing:.08em;color:var(--px-accent);margin-bottom:8px}
-.session{padding:8px 10px;border-radius:var(--dsw-radius-sm);font-size:13px;color:var(--dsw-alias-label-secondary)}
-.session.sel{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary);box-shadow:inset 3px 0 0 var(--px-accent)}
+.jJkEga_sessionRow{padding:0 8px;border-radius:var(--dsw-radius-md);font-size:13px;color:var(--dsw-alias-label-primary);display:flex;align-items:center;gap:6px;height:32px}
+.jJkEga_title{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .sideFoot{margin-top:auto;font-family:var(--px-font-ui);font-size:12px;color:var(--dsw-alias-label-caption)}
 .main{flex:1;padding:20px 28px;display:flex;flex-direction:column;gap:16px;min-width:0}
 .header h1{font-size:20px;margin:2px 0 8px;color:var(--dsw-alias-label-primary)}
@@ -200,6 +202,31 @@ ${mock}
 </html>
 `
 
-writeFileSync(`${root}preview.html`, shell(false))
-writeFileSync(`${root}preview-dark.html`, shell(true))
-console.log(`preview: preview.html / preview-dark.html（样式表 ${css.length} 字节）`)
+/** 开屏自检预览页：只有那一块一次性上电画面（其余样式与真 bundle 同源）。 */
+const bootPage = (dark) => `<!DOCTYPE html>
+<html lang="zh-CN" data-px-motion="normal" data-px-scanlines="on" data-px-fonts="headings" data-px-intensity="standard">
+<head><meta charset="UTF-8"><title>dsh-huashu-pixel 开屏自检</title>
+<style>
+${css}
+${PREVIEW_ALIAS_SHIM}
+html,body{margin:0;height:100%}
+[data-px-boot]{animation:none;clip-path:none}
+[data-px-boot] .px-boot-line{opacity:1;animation:none}
+</style></head>
+<body${dark ? ' data-ds-dark-theme' : ''}>
+<div data-px-boot aria-hidden="true">
+  <div class="px-boot-line">HUASHU PIXEL BIOS v1.1</div>
+  <div class="px-boot-line">RAM 128K OK</div>
+  <div class="px-boot-line">PALETTE 124 TOKENS OK</div>
+  <div class="px-boot-line">CRT SYNC OK</div>
+  <div class="px-boot-line">READY.<span class="px-boot-cursor"></span></div>
+</div>
+</body></html>
+`
+
+writeFileSync(`${root}preview.html`, shell(false, 'standard'))
+writeFileSync(`${root}preview-dark.html`, shell(true, 'standard'))
+writeFileSync(`${root}preview-soft.html`, shell(false, 'light'))
+writeFileSync(`${root}preview-strong.html`, shell(false, 'strong'))
+writeFileSync(`${root}preview-boot.html`, bootPage(false))
+console.log(`preview: standard / dark / soft / strong / boot（样式表 ${css.length} 字节）`)

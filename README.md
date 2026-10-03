@@ -2,8 +2,9 @@
 
 给 DSH Web GUI 换一套**暖调像素**主题：亮色是暖米白纸面 + 深褐墨字的「设计文稿」，暗色切到老式街机的琥珀磷光；控件与标签用像素字体，正文保持系统字体；流式输出与状态变化带方块光标、扫描线、硬切闪帧等 CRT 动效。
 
-![亮色：暖调像素](screenshots/light.png)
-![暗色：街机磷光](screenshots/dark.png)
+![标准强度 · 亮色](screenshots/standard.png)
+![标准强度 · 暗色（街机磷光）](screenshots/dark.png)
+![轻强度](screenshots/soft.png) · ![浓强度](screenshots/strong.png) · ![开屏自检](screenshots/boot.png)
 
 > 截图由 `scripts/build-preview.mjs` 从**真 bundle** 生成（不是手抄的第二份 CSS）。
 
@@ -25,9 +26,10 @@ dsh plugin --profile desktop add dsh-huashu-pixel
 
 | 档位 | 取值 | 默认 | 说明 |
 |:--|:--|:--|:--|
-| 动效 | 标准 / 温和 / 街机 / 无 | 标准 | 街机档另加抖动、屏闪与开机自检 |
-| 扫描线 | 开 / 关 | 开 | CRT 扫描线覆层（`pointer-events:none`，不影响点击） |
-| 像素字体 | 控件与标签 / 全界面 / 关 | 控件与标签 | 全界面档连正文一起像素化（字号取 12/24px 倍数最清晰） |
+| **强度** | 轻 / 标准 / 浓 | 标准 | 装饰的多寡：轻≈只换配色与字体；标准＝方角化 + 关键面硬描边 + 侧栏像素灯；浓＝控件全描边、卡片气泡也描边、菜单反白、圆角归零、扫描线更强 |
+| 动效 | 标准 / 温和 / 街机 / 无 | 标准 | 街机档另加抖动、屏闪与完整 BIOS 自检；标准档只有一次约 0.6s 的上电 |
+| 扫描线 | 开 / 关 | 开 | CRT 扫描线 + 暗角覆层（`pointer-events:none`，不影响点击） |
+| 像素字体 | 控件与标签 / 全界面 / 全界面·12px / 关 | 控件与标签 | 全界面档连正文一起像素化；**全界面·12px** 把正文钉在像素字体的原生网格上最清晰 |
 | 总开关 | 开 / 关 | 开 | 关掉即整套停用，资源全部回收 |
 
 命令行里也能临时试档（与设置行同一份状态，会写入 localStorage）：
@@ -41,9 +43,9 @@ __HUASHU_PIXEL__.reset()                      // 回到出厂默认
 ## 主题内容
 
 - **配色**：覆盖 130 个 `--dsw-*` token。6 档静态色阶（换成暖色系）让所有 `var(--dsw-static-*)` 派生的别名自动跟随；别名层单独覆盖写死 hex 的 47 项（描边、遮罩、悬停、菜单实底、diff 底色、菜单分组底）。亮色对齐这套像素文稿的既有色：纸 `#F5F0EB`、卡 `#FFFDF9`、墨 `#2A2520`、棕 `#8B7355`、金 `#D4A574`、橙 `#E8642C`、描边 `#D4C5B8`；暗色为底 `#14110D`、面板 `#1C1813`、磷光米 `#F2E3C6`、琥珀 `#FFAE2B`。
-- **形状**：圆角 4/8/12/16/20/28px → 2/4/6/8/10/12px；菜单/浮层/对话框/输入区改**硬描边 + 3–5px 实心偏移投影**，去掉毛玻璃；滚动条 5px → 10px 且方角；表头墨底纸字；引用块 3px 橙线 + 棕字。
+- **形状**：圆角按强度三档（轻 2/4/6/8/10/12px · 标准 2/2/4/6/8/10px · 浓 0/0/0/2/4/6px）；侧栏会话行方块化、选中＝墨块 + 左侧橙灯 + 14px 像素灯位；菜单/浮层/对话框/输入区改**硬描边 + 3–5px 实心偏移投影**，去掉毛玻璃；滚动条 5px → 10px 且方角；表头墨底纸字；引用块 3px 橙线 + 棕字。
 - **字体**：随包发布两个 OFL 像素字体——**Ark Pixel 12px**（中文 + 拉丁，552KB）与 **Press Start 2P**（拉丁展示体，12KB）。像素字体只在原生网格上清晰，所以控件统一钉在 12px；正文、代码与 markdown 标题保持系统字体。字体由 Host 半边经 `webServer` 路由 `/huashu-pixel/fonts/*` 直出（文件名白名单，不可穿越）。
-- **动效**：流式文字尾部 7×12px 方块光标硬闪 + 磷光，官方扫光只改缓动为 `steps(8)`，运行中转轮改 4 格跳转；`[data-running]` 步骤底部一条逐格行进的像素条；一轮开始扫描线下扫一次；一轮结束 CRT 收尾闪（只动 `filter`）；出错红灯硬闪两下；菜单硬弹出；`prefers-reduced-motion` 下全部关闭。
+- **动效**：开屏有一次 CRT 上电自检（标准档两行约 0.6s，街机档五行 BIOS 约 1.25s，点一下可跳过）；流式文字尾部方块光标硬闪 + 磷光，浓档另有一条逐格行进的橙色"打印头"下划线，官方扫光只改缓动为 `steps(8)`，运行中转轮改 4 格跳转；`[data-running]` 步骤底部一条逐格行进的像素条；一轮开始扫描线下扫一次；一轮结束 CRT 收尾闪（只动 `filter`）；出错红灯硬闪两下；菜单硬弹出；`prefers-reduced-motion` 下全部关闭。
 
 ## 为什么升级不容易打崩
 
@@ -56,7 +58,7 @@ __HUASHU_PIXEL__.reset()                      // 回到出厂默认
 
 ```sh
 npm run check     # 双文件语法 + 冒烟测试
-npm test          # 最小 DOM/React/cordis 替身跑真 bundle：注入 / token 契约 / 状态位 / 槽位注册 / 卸载 / 兜底
+npm test          # 最小 DOM/React/cordis 替身跑真 bundle：注入 / token 契约 / 强度三档 / 槽位注册 / 卸载 / 兜底
 node scripts/build-preview.mjs   # 从真 bundle 重新生成 preview.html 与 preview-dark.html
 ```
 
@@ -65,7 +67,7 @@ node scripts/build-preview.mjs   # 从真 bundle 重新生成 preview.html 与 p
 ```sh
 curl -sI http://127.0.0.1:19387/huashu-pixel/fonts/huashu-pixel-cjk-12.woff2   # 200 + font/woff2
 # cordis_inspect_query(client, Slots, listSubTree, root=settings.general.item) → 占用行 id: huashu-pixel
-# cordis_inspect_query(client, Theme, listTokens) → 130 个 token 由本插件注册
+# cordis_inspect_query(client, Theme, listTokens) → 124 个 token 由本插件注册（圆角改由样式表按强度三档声明）
 ```
 
 ## 发布

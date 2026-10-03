@@ -163,16 +163,24 @@ for (const name of tokenNames) {
 for (const required of [
   '--dsw-alias-bg-base', '--dsw-alias-bg-layer-1', '--dsw-alias-border-l1',
   '--dsw-static-neutral-bluish-1000', '--dsw-static-neutral-bluish-50',
-  '--dsw-static-deepseek-500', '--dsw-radius-md'
+  '--dsw-static-deepseek-500', '--dsw-alias-border-l4'
 ]) {
   assert.ok(tokenNames.includes(required), `token 表缺少 ${required}`)
 }
 assert.notEqual(captured.tokens['--dsw-alias-bg-base'].light, captured.tokens['--dsw-alias-bg-base'].dark)
 
+// 圆角已移出 token 表：改由样式表按强度三档声明（切档才能即时生效）
+assert.ok(!tokenNames.includes('--dsw-radius-md'), '圆角不应再进 token 表')
+for (const tier of ['light', 'standard', 'strong']) {
+  assert.ok(css.includes(`html[data-px-intensity="${tier}"] body{`), `样式表缺少 ${tier} 档圆角规则`)
+}
+assert.ok(css.includes('html[data-px-intensity="strong"] body{--dsw-radius-xs:0px'), '浓档应当把 xs 圆角压到 0')
+
 // 默认状态位
 assert.equal(dom.documentElement.getAttribute('data-px-motion'), 'normal')
 assert.equal(dom.documentElement.getAttribute('data-px-scanlines'), 'on')
 assert.equal(dom.documentElement.getAttribute('data-px-fonts'), 'headings')
+assert.equal(dom.documentElement.getAttribute('data-px-intensity'), 'standard')
 
 // 设置行
 assert.equal(captured.slot, 'settings.general.item')
@@ -187,20 +195,23 @@ assert.equal(captured.locale.dicts.en['px.title'], 'Huashu Pixel')
 // 设置行能渲染（文案函数直接回显 key，检查结构里确实带上了四组档位）
 const tree = captured.component({ t: (key) => key })
 assert.equal(tree.type, 'div')
+assert.ok(JSON.stringify(tree).includes('px.intensity'))
 assert.ok(JSON.stringify(tree).includes('px.motion'))
 assert.ok(JSON.stringify(tree).includes('px.scanlines'))
 assert.ok(JSON.stringify(tree).includes('px.fonts'))
 
 // 调试 API = 设置行的同一份状态，并且写进 localStorage
 assert.equal(typeof dom.window.__HUASHU_PIXEL__.set, 'function')
-dom.window.__HUASHU_PIXEL__.set({ motion: 'arcade', scanlines: false, pixelFonts: 'all' })
+dom.window.__HUASHU_PIXEL__.set({ motion: 'arcade', scanlines: false, pixelFonts: 'all', intensity: 'strong' })
 assert.equal(dom.documentElement.getAttribute('data-px-motion'), 'arcade')
 assert.equal(dom.documentElement.getAttribute('data-px-fonts'), 'all')
+assert.equal(dom.documentElement.getAttribute('data-px-intensity'), 'strong')
 assert.equal(dom.documentElement.getAttribute('data-px-scanlines'), 'off')
 assert.equal(overlays().length, 0, '关掉扫描线后覆层应移除')
 assert.equal(dom.store.get('dsh-huashu-pixel.motion'), 'arcade')
 assert.equal(dom.store.get('dsh-huashu-pixel.scanlines'), '0')
 assert.equal(dom.store.get('dsh-huashu-pixel.pixelFonts'), 'all')
+assert.equal(dom.store.get('dsh-huashu-pixel.intensity'), 'strong')
 
 // 关闭总开关：视觉全回收
 dom.window.__HUASHU_PIXEL__.set({ enabled: false })
@@ -222,7 +233,7 @@ for (const dispose of cleanups) if (typeof dispose === 'function') dispose()
 assert.equal(dom.head.children.filter((el) => el.tagName === 'STYLE').length, 0)
 assert.equal(overlays().length, 0)
 assert.equal(dom.window.__HUASHU_PIXEL__, undefined)
-for (const attr of ['data-px-motion', 'data-px-scanlines', 'data-px-fonts']) {
+for (const attr of ['data-px-motion', 'data-px-scanlines', 'data-px-fonts', 'data-px-intensity']) {
   assert.equal(dom.documentElement.getAttribute(attr), null, `卸载后 ${attr} 应移除`)
 }
 
@@ -254,4 +265,4 @@ loadClient(dom4).apply(makeContext(dom4, { sources: [], tokens: null, disposed: 
 assert.equal(dom4.documentElement.getAttribute('data-px-motion'), 'normal', '非法档位应回落默认')
 assert.equal(dom4.documentElement.getAttribute('data-px-fonts'), 'headings', '非法范围应回落默认')
 
-console.log(`smoke: 全部通过（${tokenNames.length} 个 token，3 个场景，13 组断言）`)
+console.log(`smoke: 全部通过（${tokenNames.length} 个 token，3 个场景，14 组断言）`)
