@@ -1,6 +1,6 @@
 {
   "name": "dsh-huashu-pixel",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "花书像素主题：暖米白纸面 + 深褐墨字 + 橙色强调 + 像素字体，暗色切街机磷光；流式输出与状态变化带 CRT 动效。",
   "type": "module",
   "main": "./lib/index.js",

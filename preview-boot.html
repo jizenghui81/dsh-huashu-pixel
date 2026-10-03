@@ -82,7 +82,7 @@ body{
 }
 
 /* ── 5. 像素字体范围（由 <html data-px-fonts> 分档） ─────────────────── */
-html:is([data-px-fonts="headings"],[data-px-fonts="all"],[data-px-fonts="all12"]) :is(button,[role="button"],[role="menuitem"],[role="menuitemradio"],[role="menuitemcheckbox"],[role="tab"],[role="option"],[data-menu-group-heading],[data-menu-group-heading-start],[data-composer-chip],[data-ref-chip],[data-caption],[data-path-label],[data-conversation-tabs],[data-goal-bar],[data-status],[data-plan-card],[data-queue-dock],[data-windows-titlebar],[class*="_sessionRow"] [class*="_title"],[class*="_sessionRow"] [class*="_meta"],[class*="_projectRow"] [class*="_title"],[class*="_projectRow"] [class*="_meta"],[class*="_rowActions"] button,[class*="_sectionLabel"]){
+html:is([data-px-fonts="headings"],[data-px-fonts="all"],[data-px-fonts="all12"]) :is(button,[role="button"],[role="menuitem"],[role="menuitemradio"],[role="menuitemcheckbox"],[role="tab"],[role="option"],[data-menu-group-heading],[data-menu-group-heading-start],[data-composer-chip],[data-ref-chip],[data-caption],[data-path-label],[data-conversation-tabs],[data-goal-bar],[data-status],[data-plan-card],[data-queue-dock],[data-windows-titlebar],[class*="_rowActions"] button,[class*="_sectionLabel"]){
   font-family:var(--px-font-ui);
   font-size:12px !important;
   line-height:1.5 !important;
@@ -172,6 +172,57 @@ html:is([data-px-motion="normal"],[data-px-motion="arcade"]) :is([data-px-intens
 /* 轻档：侧栏只留一道橙轨，不反白 */
 html[data-px-intensity="light"] :is([class*="_sessionRow"],[class*="_projectRow"])[class*="_selected"]{
   box-shadow:inset 3px 0 0 0 var(--px-accent) !important;
+}
+
+/* 6.4.1 侧栏文字可读性：**不套像素字体**（12px 网格在会话标题上偏小），用系统字体并放大一档 */
+:is([class*="_sessionRow"],[class*="_projectRow"]) [class*="_title"]{
+  font-family:var(--dsw-font-family) !important;
+  font-size:14px !important;
+  line-height:20px !important;
+  -webkit-font-smoothing:auto !important;
+}
+:is([class*="_sessionRow"],[class*="_projectRow"]) :is([class*="_meta"],[class*="_time"]) {
+  font-family:var(--dsw-font-family) !important;
+  font-size:12px !important;
+  line-height:18px !important;
+}
+:is([class*="_sessionRow"],[class*="_projectRow"]){min-height:32px !important}
+
+/* 6.4.2 输出中的 Loading 进度条（由 JS 打开 <html data-px-busy>）
+   底槽＝纸面 + 墨线 + 8px 像素格；填充＝琥珀实心块，18 秒按 12 格推进到 92%；
+   右缘一块更亮的"打印头"；跑完（data-px-busy="done"）整条走满、闪一下再淡出。 */
+html[data-px-busy] [data-composer-card]{position:relative}
+html[data-px-busy] [data-composer-card]::after{
+  content:'';position:absolute;left:0;right:0;top:-8px;height:7px;pointer-events:none;
+  border:1px solid var(--px-line);
+  background-color:var(--dsw-alias-bg-layer-1);
+  background-image:repeating-linear-gradient(90deg,var(--px-line) 0 1px,transparent 1px 8px);
+}
+html[data-px-busy] [data-composer-card]::before{
+  content:'';position:absolute;left:0;top:-8px;height:7px;width:4%;pointer-events:none;z-index:1;
+  background:var(--px-accent);
+  box-shadow:2px 0 0 0 var(--px-ink),0 0 10px var(--px-glow);
+  animation:px-progress 18s steps(12,end) 1 forwards;
+  opacity:.95;
+}
+@keyframes px-progress{
+  0%{width:4%}
+  35%{width:34%}
+  65%{width:62%}
+  100%{width:92%}
+}
+html[data-px-busy="done"] [data-composer-card]::before{
+  width:100% !important;animation:none !important;
+}
+html[data-px-busy="done"] [data-composer-card]::after{
+  animation:px-busy-out .5s steps(4,end) .18s 1 forwards;
+}
+@keyframes px-busy-out{0%{opacity:1}100%{opacity:0}}
+html[data-px-motion="quiet"] [data-composer-card]::before{animation-duration:26s}
+html[data-px-motion="off"] [data-composer-card]::before,
+html[data-px-motion="off"] [data-composer-card]::after{content:none;display:none}
+@media (prefers-reduced-motion:reduce){
+  [data-composer-card]::before{animation:none !important;width:60% !important}
 }
 
 /* 6.5 状态灯：只作用在小元素上（行容器也带 data-state，绝不能整块刷色） */

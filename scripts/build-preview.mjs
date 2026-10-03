@@ -156,8 +156,8 @@ const mock = String.raw`
 </div>
 `
 
-const shell = (dark, tier = 'standard') => `<!DOCTYPE html>
-<html lang="zh-CN" data-px-motion="normal" data-px-scanlines="on" data-px-fonts="headings" data-px-intensity="${tier}">
+const shell = (dark, tier = 'standard', busy = false) => `<!DOCTYPE html>
+<html lang="zh-CN" data-px-motion="normal" data-px-scanlines="on" data-px-fonts="headings" data-px-intensity="${tier}"${busy ? ' data-px-busy=""' : ''}>
 <head>
 <meta charset="UTF-8">
 <title>dsh-huashu-pixel 预览${dark ? '（暗）' : '（亮）'} · ${tier}</title>
@@ -229,4 +229,5 @@ writeFileSync(`${root}preview-dark.html`, shell(true, 'standard'))
 writeFileSync(`${root}preview-soft.html`, shell(false, 'light'))
 writeFileSync(`${root}preview-strong.html`, shell(false, 'strong'))
 writeFileSync(`${root}preview-boot.html`, bootPage(false))
-console.log(`preview: standard / dark / soft / strong / boot（样式表 ${css.length} 字节）`)
+writeFileSync(`${root}preview-busy.html`, shell(false, 'standard', true))
+console.log(`preview: standard / dark / soft / strong / boot / busy（样式表 ${css.length} 字节）`)
