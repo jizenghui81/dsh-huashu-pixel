@@ -1,0 +1,11 @@
+# dsh-huashu-pixel —— 花书像素主题 bundle
+#
+# 这一行把插件的 Host 半边挂进 profile；浏览器半边由 package.json 的 dsh.client 声明。
+# 主题默认参数写在这里（也都能在「设置 → 插件 → 花书像素」里改）：
+#   enabled    总开关
+#   motion     动效档：normal（标准）/ quiet（温和）/ arcade（夸张街机）/ off
+#   scanlines  CRT 扫描线覆层
+#   pixelFonts 像素字体范围：headings（标题与控件）/ all（全界面）/ off
+- insert:
+    - id: dsh-huashu-pixel
+      name: dsh-huashu-pixel

@@ -1,0 +1,83 @@
+{
+  "name": "dsh-huashu-pixel",
+  "version": "1.0.0",
+  "description": "花书像素主题：暖米白纸面 + 深褐墨字 + 橙色强调 + 像素字体，暗色切街机磷光；流式输出与状态变化带 CRT 动效。",
+  "type": "module",
+  "main": "./lib/index.js",
+  "license": "MIT",
+  "author": "纪增晖 (jizenghui)",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "theme",
+    "skin",
+    "pixel",
+    "pixel-art",
+    "retro",
+    "crt",
+    "arcade"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jizenghui81/dsh-huashu-pixel.git"
+  },
+  "homepage": "https://github.com/jizenghui81/dsh-huashu-pixel#readme",
+  "bugs": {
+    "url": "https://github.com/jizenghui81/dsh-huashu-pixel/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "icon": "./icon.svg",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "default": "./lib/client.js"
+    },
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json",
+    "./fonts/*": "./fonts/*",
+    "./cordis.patch.yml": "./cordis.patch.yml"
+  },
+  "//dsh": "profile bundle 声明：dsh.bundle.patch 让 launcher 自动挂载；dsh.client 声明浏览器半边（手写 bundle，无构建步骤）。engines.dsh 让旧宿主拿到明确信号而不是静默失效。",
+  "dsh": {
+    "manifestVersion": 1,
+    "engines": {
+      "dsh": ">=0.2.0-rc.1 <0.3.0"
+    },
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-theme"
+      ]
+    }
+  },
+  "files": [
+    "lib",
+    "locale",
+    "fonts",
+    "icon.svg",
+    "screenshots",
+    "cordis.patch.yml",
+    "dsh-plugin.naming.json",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "check": "node --check lib/index.js && node --check lib/client.js && node --check test/smoke.mjs && node --check scripts/build-preview.mjs",
+    "test": "node test/smoke.mjs",
+    "preview": "node scripts/build-preview.mjs",
+    "prepublishOnly": "npm run check && npm test"
+  },
+  "engines": {
+    "node": "^22.19 || >=24"
+  }
+}

@@ -1,0 +1,2 @@
+# 单包仓库：profile 安装时 pnpm 在本目录执行，不需要独立工作区语义。
+autoInstallPeers: false

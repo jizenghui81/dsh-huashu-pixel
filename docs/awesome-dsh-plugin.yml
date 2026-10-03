@@ -1,0 +1,8 @@
+# 投给 awesome-dsh-plugin 的条目：一个插件一个文件
+#   路径：data/plugins/jizenghui81__dsh-huashu-pixel.yml
+url: https://github.com/jizenghui81/dsh-huashu-pixel
+name: jizenghui81/dsh-huashu-pixel
+category: theme
+description:
+  en: 'Warm pixel theme for the DSH Web UI: cream-paper light palette and arcade-phosphor dark palette, hard-edged pixel chrome with square corners and offset shadows, bundled pixel fonts for controls, and CRT motion on streaming text and state changes (block cursor, scanline sweep, hard-cut flashes), each switchable from a General settings row.'
+  zh: 'DSH Web 界面的暖调像素主题：亮色为暖米白纸面、暗色为街机磷光；方角硬描边与偏移投影的像素控件、随包发布的像素字体（仅控件与标签），流式输出与状态变化带方块光标、扫描线扫过与硬切闪帧，档位在「设置 → 通用」里切换。'

@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "policy": "dsh-plugin-naming/v1",
+  "plugin": {
+    "namespace": "jizenghui",
+    "name": "huashu-pixel",
+    "coordinate": "jizenghui/huashu-pixel",
+    "packageName": "dsh-huashu-pixel"
+  },
+  "names": {
+    "pluginNames": [
+      "huashu-pixel"
+    ],
+    "loaderIds": [
+      "dsh-huashu-pixel"
+    ],
+    "services": [],
+    "tools": [],
+    "commands": [],
+    "skills": [],
+    "skillProviders": [],
+    "events": [],
+    "settingsNamespaces": [
+      "dsh-huashu-pixel"
+    ],
+    "routes": [
+      "/huashu-pixel"
+    ]
+  }
+}
