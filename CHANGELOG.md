@@ -1,5 +1,47 @@
 # CHANGELOG · dsh-huashu-pixel
 
+## V1.2.1 · 2026-10-04
+
+**修：装上主题后 macOS 上整个 DSH 窗口拖不动了**（只能移动不了，点击与输入都正常）。
+
+**现象**：开着主题（尤其开着扫描线）时，标题栏/侧栏顶部按下去完全不动窗口；关掉主题即恢复。
+
+**根因（两段合起来才成立）**
+
+1. 官方 `ui-web base.css` 有一条 darwin 专用规则：
+   `html[data-platform=darwin] body>:not(#root){-webkit-app-region:no-drag}`。
+   主题的 CRT 覆层与开屏自检都是 `document.body.appendChild(...)` 的**直接子元素** → 命中这条规则。
+2. 拖拽区在 Blink 里不是一个"区域集合"，而是**按文档顺序排列的 并(drag)/减(no-drag) 指令表**：
+   `LocalFrameView::CollectDraggableRegions` 顺序遍历布局树，每个带 `-webkit-app-region` 的
+   LayoutBox 产出一条 `{bounds, draggable}`（`LayoutObject::AddDraggableRegions`）。
+   覆层 `position:fixed;inset:0` 挂在 `#root` **之后**，于是它那条"整窗 no-drag"把前面
+   `[data-window-drag]` 攒下的所有拖拽区全减掉 → 窗口零拖拽区。
+   点击不受影响，因为覆层是 `pointer-events:none`，所以症状只表现为"不能移动"。
+
+**修法**：给覆层与开屏自检面板显式复位
+
+```css
+html[data-platform="darwin"] [data-dsh-huashu-pixel-overlay],
+html[data-platform="darwin"] [data-px-boot]{-webkit-app-region:initial !important}
+```
+
+⚠️ **必须写 `initial`，不能写 `none`**：实测这一代 Chromium 把**显式 `none` 算成 `no-drag`**
+（`getComputedStyle` 返回 `no-drag`；同一文档里未声明的元素才返回 `none`），写 `none` 等于没修。
+官方自己的 body 级弹层（`PlatformOverlay` / `OnboardingSurface`）也是用
+`-webkit-app-region:initial` 把继承来的 `no-drag` 复位——这里沿用它。
+`!important` 用来压过上面那条官方规则的优先级。
+
+**验证（已脚本化，真 Chromium，不依赖人眼）**
+
+- 新增 `test/drag-region-probe.mjs`（`npm run verify:drag`）：把真 bundle 的样式表塞进"仿宿主"页面
+  （逐字复刻官方 darwin 规则 + 两条 `[data-window-drag]`），跑 headless Chrome 两遍对比——
+  删掉复位规则（等价 v1.2.0）：覆层 `no-drag`，标题栏/侧栏顶判定 **拖不动**（复现 bug）；
+  原样（v1.2.1）：覆层与树内未声明元素同为 `none`，两处判定 **拖得动**，控件仍 `no-drag`。9/9 通过。
+- `test/smoke.mjs` 增 2 条常驻断言：样式表必须含该复位规则，且**不得**出现 `-webkit-app-region:none`。
+- 为什么不能在宿主里"读拖拽区"自证：Electron 没暴露这个状态；探针改走 Blink 的区域算法等价复刻
+  （源码依据：`third_party/blink/renderer/core/frame/local_frame_view.cc: CollectDraggableRegions`、
+  `core/layout/layout_object.cc: AddDraggableRegions`）。
+
 ## V1.2.0 · 2026-10-03
 
 按反馈做的两件事（强度档保持"标准"不变）。

@@ -370,6 +370,21 @@ html[data-px-intensity="light"] body[data-ds-dark-theme] [data-dsh-huashu-pixel-
 }
 html[data-px-scanlines="off"] [data-dsh-huashu-pixel-overlay]{display:none}
 
+/* ── 9.1 macOS：全屏覆层必须退出窗口拖拽区的计算 ──────────────────────
+   官方 ui-web base.css 有一条 html[data-platform=darwin] body>:not(#root){-webkit-app-region:no-drag}。
+   覆层与开屏自检都是 body 的**直接子元素**，会命中这条规则；而拖拽区在 Blink 里是
+   **按文档顺序**逐个"并/减"的区域列表（LayoutView 顺序遍历布局树收集 -webkit-app-region
+   元素，见 core/frame/local_frame_view.cc: CollectDraggableRegions）。
+   覆层挂在 #root 之后，于是它那一格"整窗 no-drag"把前面所有拖拽区全减掉 →
+   窗口再也拖不动（点击不受影响，因为覆层是 pointer-events:none，所以只表现为"不能移动"）。
+   ⚠️ 这里**必须写 initial，不能写 none**：实测这一代 Chromium 的 -webkit-app-region
+   把显式 none 算成 no-drag（真实浏览器探针，见 CHANGELOG V1.2.1），写 none 等于没修。
+   initial 才回到"未声明"那个状态（同文档里无声明元素 = 不参与拖拽区计算）；
+   !important 用来压过官方那条 no-drag 的优先级。官方自己的 body 级弹层
+   （PlatformOverlay/Onboarding）也是用 -webkit-app-region:initial 把继承来的 no-drag 复位。 */
+html[data-platform="darwin"] [data-dsh-huashu-pixel-overlay],
+html[data-platform="darwin"] [data-px-boot]{-webkit-app-region:initial !important}
+
 /* ── 11. 开屏自检（一次性 CRT 上电，由 JS 挂载并在结束后自删） ───────── */
 [data-px-boot]{
   position:fixed;inset:0;z-index:2147483000;pointer-events:auto;

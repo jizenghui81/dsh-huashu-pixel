@@ -61,8 +61,15 @@ __HUASHU_PIXEL__.reset()                      // 回到出厂默认
 ```sh
 npm run check     # 双文件语法 + 冒烟测试
 npm test          # 最小 DOM/React/cordis 替身跑真 bundle：注入 / token 契约 / 强度三档 / 槽位注册 / 卸载 / 兜底
+npm run verify:drag   # 真 Chromium 跑 macOS 拖拽区探针（需本机 Chrome；改样式表/加 body 级元素后必跑）
 node scripts/build-preview.mjs   # 从真 bundle 重新生成 preview.html 与 preview-dark.html
 ```
+
+> ⚠️ **加 body 级全屏元素前先读这条**：官方 ui-web 给 `body>:not(#root)` 钉了
+> `-webkit-app-region:no-drag`，而 Blink 按文档顺序"并/减"拖拽区——挂在 `#root` 之后的
+> 全屏覆层会把整个窗口的拖拽区减没，表现是**窗口拖不动**（点击正常）。
+> 本主题的 CRT 覆层与开屏自检靠 `-webkit-app-region:initial !important` 复位
+> （**不能写 `none`**，本代 Chromium 把显式 `none` 算成 `no-drag`）。细节见 CHANGELOG V1.2.1。
 
 装到 profile 后的验收证据：
 

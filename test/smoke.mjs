@@ -145,6 +145,14 @@ for (const needle of [
 }
 assert.equal(styleTags[0].dataset.plugin, 'dsh-huashu-pixel')
 
+// macOS 拖拽区护栏：覆层/开屏自检是 body 直接子元素，会被官方
+// `body>:not(#root){-webkit-app-region:no-drag}` 命中，进而把整个窗口从拖拽区减掉。
+// 必须显式复位成 initial（不是 none：实测这一代 Chromium 把显式 none 算成 no-drag）。
+const dragGuard = 'html[data-platform="darwin"] [data-dsh-huashu-pixel-overlay],\n'
+  + 'html[data-platform="darwin"] [data-px-boot]{-webkit-app-region:initial !important}'
+assert.ok(css.includes(dragGuard), '样式表缺少 macOS 拖拽区复位规则（initial !important）')
+assert.ok(!/-webkit-app-region:none/.test(css), '不要用 -webkit-app-region:none（本代 Chromium 会算成 no-drag）')
+
 // CRT 覆层
 const overlays = () => dom.body.children.filter((el) => el.getAttribute('data-dsh-huashu-pixel-overlay') !== null)
 assert.equal(overlays().length, 1, '应当追加恰好一个 CRT 覆层')
