@@ -20,11 +20,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jizenghui81/dsh-huashu-pixel.git"
+    "url": "git+https://gitcode.com/weixin_42127089/dsh-huashu-pixel.git"
   },
-  "homepage": "https://github.com/jizenghui81/dsh-huashu-pixel#readme",
+  "homepage": "https://gitcode.com/weixin_42127089/dsh-huashu-pixel#readme",
   "bugs": {
-    "url": "https://github.com/jizenghui81/dsh-huashu-pixel/issues"
+    "url": "https://gitcode.com/weixin_42127089/dsh-huashu-pixel/issues"
   },
   "publishConfig": {
     "access": "public"

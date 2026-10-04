@@ -1,6 +1,9 @@
 # 上架 PR 草稿（awesome-dsh-plugin）
 
 仓库侧已就绪：`https://github.com/jizenghui81/dsh-huashu-pixel`（public，含 `dsh-plugin` topic）。
+> 2026-10-04 起改为**双远端**：主库在 GitCode `https://gitcode.com/weixin_42127089/dsh-huashu-pixel`，
+> GitHub 保留为镜像。**本 PR 的条目 url 仍指 GitHub 镜像**（上游 CI 只校验 GitHub 仓库），正文安装命令用
+> `github:jizenghui81/dsh-huashu-pixel` 简写或 GitCode 完整地址都行。
 fork 与分支也已推好：`jizenghui81/awesome-dsh-plugin` @ `add-huashu-pixel`，条目文件
 `data/plugins/jizenghui81__dsh-huashu-pixel.yml`（分类 `theme`）。
 

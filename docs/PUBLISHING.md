@@ -1,19 +1,33 @@
 # 发布与投稿
 
-两条通道，互不冲突。**先把仓库推上去**（两处都要一个真实、可访问的 GitHub 仓库）。
+**双远端分工（2026-10-04 定）**：`origin` = **GitCode 主库**（国内直连、推送不用代理）；
+`github` = **GitHub 镜像**（插件市场 / awesome-dsh-plugin 投稿只认 GitHub 仓库，所以镜像必须存在且同步）。
 
-## 0. 前置：建仓库并推送
+| 用途 | 地址 |
+|:--|:--|
+| 主库（推送/issue） | https://gitcode.com/weixin_42127089/dsh-huashu-pixel |
+| 镜像（投稿/短链安装） | https://github.com/jizenghui81/dsh-huashu-pixel |
+
+```sh
+git push origin main     # GitCode 主
+git push github main     # 同步镜像
+```
+
+## 0. 前置：仓库与远端（已建好，此节留作重建参考）
 
 ```sh
 cd ~/code/dsh-huashu-pixel
-git init -b main && git add -A && git commit -m "feat: dsh-huashu-pixel v1.0.0 — 花书像素主题"
-gh repo create jizenghui81/dsh-huashu-pixel --public --source=. --remote=origin --push
-# 或手工：git remote add origin git@github.com:jizenghui81/dsh-huashu-pixel.git && git push -u origin main
+git remote add origin https://gitcode.com/weixin_42127089/dsh-huashu-pixel.git
+git remote add github https://github.com/jizenghui81/dsh-huashu-pixel.git
+git push -u origin main && git push github main
 ```
 
-仓库名与 `package.json` 的 `name` 一致（`dsh-huashu-pixel`）。给仓库加 **`dsh-plugin`** topic —— 投稿要求之一。
+GitCode 无仓库简写（`github:`/`gitlab:`/`bitbucket:` 之外没有 `gitcode:`），别人安装要用**完整地址**：
+`dsh plugin --profile desktop add https://gitcode.com/weixin_42127089/dsh-huashu-pixel`。
 
-> ⚠️ `lib/` 是**提交进仓库的产物**（本插件无构建步骤，源码即产物）。git 安装 `dsh plugin add github:owner/repo` 只拿得到已提交内容。
+仓库名与 `package.json` 的 `name` 一致（`dsh-huashu-pixel`）。给 **GitHub 镜像**加 **`dsh-plugin`** topic —— 投稿要求之一。
+
+> ⚠️ `lib/` 是**提交进仓库的产物**（本插件无构建步骤，源码即产物）。git 安装只拿得到已提交内容。
 
 ## 1. 发 npm（可选）
 
@@ -28,6 +42,7 @@ npm publish            # prepublishOnly 会先跑语法检查 + 冒烟测试
 
 市场（dshmarket）的插件列表**完全来自** [awesome-dsh-plugin](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin)。
 投稿 = 往 `data/plugins/` 加**一个** YAML 文件，路径与内容见本目录 `awesome-dsh-plugin.yml`：
+⚠️ 投稿条目里的 `url` 必须指 **GitHub 镜像**（他们的 CI 只校验 GitHub 仓库：满 1 天、`dsh-plugin` topic 等），别改成 GitCode。
 
 ```sh
 # fork + clone awesome-dsh-plugin，然后：

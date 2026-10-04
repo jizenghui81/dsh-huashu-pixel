@@ -11,12 +11,17 @@
 ## 装
 
 ```sh
-# 从 GitHub（本仓库）
+# 从 GitCode（主库，国内直连）
+dsh plugin --profile desktop add https://gitcode.com/weixin_42127089/dsh-huashu-pixel
+
+# 从 GitHub（镜像，投稿/市场链接走这里）
 dsh plugin --profile desktop add github:jizenghui81/dsh-huashu-pixel
 
 # 或从 npm
 dsh plugin --profile desktop add dsh-huashu-pixel
 ```
+
+> 简写只有 `github:` / `gitlab:` / `bitbucket:`，GitCode 要用**完整仓库地址**（安装器接受任意主机的 `https://主机/属主/仓库`）。
 
 两种方式都要重启宿主/刷新页面后生效（改了浏览器半边时要 **Cmd+R 刷新**；宿主半边改动需要重启）。
 
